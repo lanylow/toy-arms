@@ -29,6 +29,7 @@ pub struct Process<'a> {
     pub name: &'a str,
     pub id: u32,
     pub handle: HANDLE,
+    pub is_wow64: BOOL
 }
 
 impl<'a> fmt::Display for Process<'a> {
@@ -47,6 +48,7 @@ impl<'a> Default for Process<'a> {
             name: "",
             id: 0,
             handle: 0x0 as HANDLE,
+            is_wow64: FALSE
         }
     }
 }
@@ -62,6 +64,7 @@ impl<'a> Process<'a> {
             name: process_name,
             id: process_id,
             handle: process_handle,
+            is_wow64: is_wow64
         })
     }
 
